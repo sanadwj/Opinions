@@ -3,4 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :tweets
+  has_many :followings
+  has_many :inverse_following, class_name: 'Following', foreign_key: 'follower_id'
+
+
+  def friends
+    follower_array = followings.map(&:follower)
+    follower_array.concat(inverse_following.map(&:user))
+    follower_array.compact
+  end
 end

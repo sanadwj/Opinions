@@ -13,18 +13,18 @@
     <shared />
   </component>
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/features" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/.bundle" />
-      <excludeFolder url="file://$MODULE_DIR$/components" />
-      <excludeFolder url="file://$MODULE_DIR$/log" />
-      <excludeFolder url="file://$MODULE_DIR$/public/packs" />
-      <excludeFolder url="file://$MODULE_DIR$/public/system" />
-      <excludeFolder url="file://$MODULE_DIR$/tmp" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/bundle" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/cache" />
+    <content url="file://$MODULE_DIR$/../Opinions">
+      <sourceFolder url="file://$MODULE_DIR$/../Opinions/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../Opinions/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../Opinions/features" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/../Opinions/.bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/../Opinions/components" />
+      <excludeFolder url="file://$MODULE_DIR$/../Opinions/log" />
+      <excludeFolder url="file://$MODULE_DIR$/../Opinions/public/packs" />
+      <excludeFolder url="file://$MODULE_DIR$/../Opinions/public/system" />
+      <excludeFolder url="file://$MODULE_DIR$/../Opinions/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/../Opinions/vendor/bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/../Opinions/vendor/cache" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -1,6 +1,6 @@
 class CreateTweets < ActiveRecord::Migration[6.0]
   def change
-    create_table :tweets do |t|
+    create_table :opinions do |t|
       t.references :user
 
       t.timestamps

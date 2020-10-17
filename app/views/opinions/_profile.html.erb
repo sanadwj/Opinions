@@ -1,0 +1,33 @@
+
+
+
+
+
+
+
+<div class="media col-12">
+  <%= image_tag current_user.avatar.variant(resize: "100x100!") if current_user.avatar.attached?%>
+
+  <div class="media-body">
+    <h5 class="mt-0 "><%= current_user.name %></h5>
+    <%= current_user.username %>
+    <%= current_user.opinions.count %>
+  </div>
+</div>
+<div class="container row d-flex flex-nowrap">
+  <div class="media col-6 d-flex flex-wrap">
+    <img src="#" class="mr-3" alt="<%= current_user.photo %>">
+    <div class="media-body">
+      <h5 class="mt-0">following</h5>
+
+
+    </div>
+  </div>
+  <div class="media col-6 d-flex flex-wrap">
+    <img src="#" class="mr-3" alt="<%= current_user.photo %>">
+    <div class="media-body">
+      <h5 class="mt-0">follower</h5>
+
+    </div>
+  </div>
+</div>

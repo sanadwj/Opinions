@@ -1,34 +1,35 @@
 class OpinionsController < ApplicationController
-  before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :set_opinion, only: [:show, :edit, :update, :destroy]
 
-  # GET /Opinions
-  # GET /Opinions.json
+  # GET /opinions
+  # GET /opinions.json
   def index
-    @opinions = Opinion.all
-  end
-
-  # GET /Opinions/1
-  # GET /Opinions/1.json
-  def show
-  end
-
-  # GET /Opinions/new
-  def new
+    @opinions = Opinion.all.order("created_at DESC")
     @opinion = Opinion.new
   end
 
-  # GET /Opinions/1/edit
+  # GET /opinions/1
+  # GET /opinions/1.json
+  def show
+  end
+
+  # GET /opinions/new
+  def new
+    @opinion = current_user.opinions.build
+  end
+
+  # GET /opinions/1/edit
   def edit
   end
 
-  # POST /Opinions
-  # POST /Opinions.json
+  # POST /opinions
+  # POST /opinions.json
   def create
-    @opinion = Opinion.new(tweet_params)
+    @opinion = current_user.opinions.build(opinion_params)
 
     respond_to do |format|
       if @opinion.save
-        format.html { redirect_to @opinion, notice: 'Opinion was successfully created.' }
+        format.html { redirect_to @opinion, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @opinion }
       else
         format.html { render :new }
@@ -37,11 +38,11 @@ class OpinionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /Opinions/1
-  # PATCH/PUT /Opinions/1.json
+  # PATCH/PUT /opinions/1
+  # PATCH/PUT /opinions/1.json
   def update
     respond_to do |format|
-      if @opinion.update(tweet_params)
+      if @opinion.update(opinion_params)
         format.html { redirect_to @opinion, notice: 'Opinion was successfully updated.' }
         format.json { render :show, status: :ok, location: @opinion }
       else
@@ -51,8 +52,8 @@ class OpinionsController < ApplicationController
     end
   end
 
-  # DELETE /Opinions/1
-  # DELETE /Opinions/1.json
+  # DELETE /opinions/1
+  # DELETE /opinions/1.json
   def destroy
     @opinion.destroy
     respond_to do |format|
@@ -63,12 +64,12 @@ class OpinionsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_tweet
+    def set_opinion
       @opinion = Opinion.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
-    def tweet_params
-      params.require(:opinion).permit(:user)
+    def opinion_params
+      params.require(:opinion).permit(:user, :body)
     end
 end

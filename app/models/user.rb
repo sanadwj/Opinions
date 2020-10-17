@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :opinions
   has_many :followings
   has_many :inverse_following, class_name: 'Following', foreign_key: 'follower_id'
+  has_one_attached :avatar
+
 
 
   def friends

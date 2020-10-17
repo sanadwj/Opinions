@@ -1,0 +1,11 @@
+<%= form_with(model: @opinion, local: true) do |form| %>
+  <div class="field rich">
+    <div class="control">
+      <%= form.rich_text_area :body, label: "What's Your Opinion", input_html: {class: "textarea"}, wrapper: false, label_html: {class: "label"}, placeholders: "Your opinion...", autofocuse: true %>
+    </div>
+  </div>
+  <%= form.button :submit, class: "button is-info"%>
+
+<% end %>
+
+

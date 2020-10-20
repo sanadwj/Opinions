@@ -1,51 +1,52 @@
-<section class="content">
-<nav class="side_nav">
+<div class="row">
+  <% if user_signed_in? %>
+  <section class="content col-2 ">
+    <nav class="side_nav">
+      <div id="cart" class="carts">
+        <%= render "users/profile" %>
+      </div>
 
-  <div id="cart" class="carts">
-    <%= render "opinions/profile" %>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/questions">Questions</a></li>
+        <li><a href="/news">News</a></li>
+        <li><%= link_to 'Profile', user_path(current_user.id), remote: true %></li>
+        <li><%= Time.now %></li >
+      </ul>
+      <%= link_to "logout", destroy_user_session_path, class: "dropdown-item", method: :delete %>
+    </nav>
+
+  </section>
+  <div class="col-10  flex-nowrap">
+    <%= render "opinions/navbar" %>
+    <div class="row  ml-0">
+      <div class="col-8">
+        <div>
+          <%= render "opinions/tab_nav" %>
+        </div>
+
+      </div>
+      <div class="col-4 ">
+
+
+
+
+        <div id="user" class="users">
+          <%  @user %>
+        </div>
+
+
+      </div>
+    </div>
   </div>
-
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/questions">Questions</a></li>
-    <li><a href="/news">News</a></li>
-    <li><a href="/contact">Contact</a></li>
-    <li><%= Time.now %></li >
-  </ul>
-  <%= link_to "logout", destroy_user_session_path, class: "dropdown-item", method: :delete %>
-</nav>
-<main class='<%= controller.controller_name %>'>
-
-</main>
-</section>
-
-<p id="notice"><%= notice %></p>
+  <% end %>
+</div>
 
 
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <%= render "opinions/form" %>
 
-  <tbody>
-    <% @opinions.each do | opinion | %>
 
-      <%= opinion.body %>
-      <tr>
 
-        <td><%= link_to 'Show', opinion %></td>
-        <td><%= link_to 'Edit', edit_opinion_path(opinion) %></td>
-        <td><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Opinion', new_opinion_path %>
+

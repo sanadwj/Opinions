@@ -1,4 +1,6 @@
 class OpinionsController < ApplicationController
+  include TheUser
+  before_action :set_user
   before_action :set_opinion, only: [:show, :edit, :update, :destroy]
 
   # GET /opinions
@@ -6,11 +8,13 @@ class OpinionsController < ApplicationController
   def index
     @opinions = Opinion.all.order("created_at DESC")
     @opinion = Opinion.new
+
   end
 
   # GET /opinions/1
   # GET /opinions/1.json
   def show
+
   end
 
   # GET /opinions/new
@@ -70,6 +74,6 @@ class OpinionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def opinion_params
-      params.require(:opinion).permit(:user, :body)
+      params.require(:opinion).permit(:user, :body, :user_id)
     end
 end

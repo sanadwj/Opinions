@@ -2,47 +2,37 @@
 // They will automatically be included in applications.scss.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-body {
-  margin: 0;
-  padding: 0;
-}
-header.main {
-  text-align: center; // center on mobile
-  @media (min-width: 30em) {
-    text-align: left; // left align on desktop
-  }
-  background: #282;
-  margin: 0;
-  h1 {
-    display: none;
-  }
-  img {
-    height: 5em;
-    margin: 1em;
 
-  }
-}
+
 
 .content {
   margin: 0;
   padding: 0;
   display: flex;
   display: -webkit-flex;
-  flex-direction: column; // mobile is horizontally laid out
+  flex-direction: column;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+  overflow-x: hidden;
   @media (min-width: 30em) {
     flex-direction: row; // desktop is vertically laid out
     -webkit-box-orient: horizontal;
+
+  }
+  .follow_nav {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
   }
   nav {
     padding-bottom: 1em;
-    background: #141;
+    background: #233145;
     text-align: center; // mobile has centered nav
     @media (min-width: 30em) {
-      text-align: left; // desktop nav is left-aligned
+      text-align: center; // desktop nav is left-aligned
       padding: 1em;
-      height: 100vh;
+      height: 100vmax;
+      width: 100%;
       // and needs more padding
     }
     ul {
@@ -75,7 +65,7 @@ header.main {
 }
 
 
-#cart {
+#user {
   article {
     h2 {
       margin-top: 0;

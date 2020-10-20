@@ -27,6 +27,7 @@
     }
   }
 
+
   action-text-attachment {
     .attachment {
       padding: 0 !important;
@@ -34,6 +35,12 @@
     }
   }
 }
-.textarea {
-  width: 10em;
+
+
+#trix-toolbar-1 {
+  .trix-button-row {
+    .trix-button-group:nth-child(2){
+      display: none;
+    }
+  }
 }

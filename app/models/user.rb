@@ -4,15 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :opinions
-  has_many :followings
-  has_many :inverse_following, class_name: 'Following', foreign_key: 'follower_id'
+  has_many :follows
+  has_many :inverse_follows, class_name: 'Follow', foreign_key: 'follower_id'
   has_one_attached :avatar
 
 
 
   def friends
-    follower_array = followings.map(&:follower)
-    follower_array.concat(inverse_following.map(&:user))
+    follower_array = follows.map(&:follower)
+    follower_array.concat(inverse_follows.map(&:user))
     follower_array.compact
   end
 end

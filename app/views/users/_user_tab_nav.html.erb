@@ -3,19 +3,19 @@
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
-      <% @opinions.each do | opinion | %>
-        <%= link_to  opinion.user.name, user_path(opinion.id) %>
+      <% @user.opinions.each do | opinion | %>
+        <%= link_to  opinion.user.name, opinions_path(opinion.id) %>
         <%= opinion.body %>
         <%= opinion.created_at.strftime('%A, %B %e,%Y') %>
         <tr>
       <% end %>
     </ul>
 
-    <%= render(@user)%>
+
     <ul class="posts">
       <h3>Friends</h3>
       <% current_user.friends.each do |person| %>
-        <%= link_to person.name, user_path(user.id)  %>
+        <%= link_to person.name, user_path(@user.id)  %>
         <% if !current_user.id == @user.id %>
           <%= link_to 'Unfriend', reject_path(user_id: person.id, friend_id: current_user.id), class: 'btn btn-danger', method: :delete %>
         <% end %>

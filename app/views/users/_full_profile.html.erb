@@ -1,9 +1,74 @@
-<section class="content col-2 ">
-  <nav class="side_nav">
-    <div >
-      sdfsfsdfsd
-      dsfdsfsdfdsfkj
-      dsfsdf
+<div class="container">
+  <div class="col-12 row align-items-baseline justify-content-around pt-3">
+
+    <div class="col-4   " style="font-size: 24px; text-align: right">
+      <%=  add_friend(@user) %>
     </div>
-  </nav>
-</section>
+    <div class="col-4 p-1">
+      <%= image_tag @user.avatar.variant(resize: "90x90!") if @user.avatar.attached?%>
+    </div>
+    <div class="col-4 " style="font-size: 24px; text-align: center">
+      <%= link_to '',  user_path(@user), class: 'fa fa-list ' %>
+    </div>
+  </div>
+
+  <div class="col-12 ">
+    <div class=" justify-content-center " style=" text-align: center">
+      <h5 class="card-title"><%= @user.name %></h5>
+      <p class="card-text"><small class="text-muted"><%= @user.username %></small></p>
+    </div>
+  </div>
+
+  <div class="col-12 row">
+    <div class="col-4">
+      <p>Following</p>
+      <%= @user.friends.count %>
+    </div>
+    <div class="col-4">
+      <p>Followers</p>
+      <%= @user.inverse_followers.count %>
+    </div>
+    <div class="col-4">
+      <p>Opinions</p>
+      <%= current_user.opinions.count %>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="media-body">
+      <h5 class="mt-0 text-dark"></h5>
+      <p class="mt-0 text-dark"></p>
+      <p class="mt-0 text-dark"></p>
+
+
+      <div class="container">
+        <div class="row justify-content-center ">
+          <%= @user.name %>
+        </div>
+      </div>
+      <span class="profile-link">
+
+         </span>
+      <span class=" profile-link ">
+
+        </span>
+
+
+      <hr/>
+
+    </div>
+    <div>
+
+      <% current_user.friends.each do |person| %>
+        <%= link_to person.name, user_path(person.id)  %>
+        <% if !current_user.id == @user.id %>
+          <%= link_to 'Unfollow', reject_path(user_id: person.id, friend_id: current_user.id), class: 'btn btn-danger', method: :delete %>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+
+

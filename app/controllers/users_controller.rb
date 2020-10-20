@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user
-        format.html { redirect_to opinions_url }
+        format.html
         format.js { @current_user = @user }
         format.json { render :show, status: :created, location: @user }
       else

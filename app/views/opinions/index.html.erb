@@ -1,32 +1,32 @@
 <div class="row">
   <% if user_signed_in? %>
-  <section class="content col-2 ">
+  <section class="content col-3 ">
     <nav class="side_nav">
       <div id="cart" class="carts">
         <%= render "users/profile" %>
-      </div>
 
+      </div>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/questions">Questions</a></li>
+        <li><a href="/questions"><%= link_to 'Profile', user_path(current_user.id), remote:true, :ajaxtarget => '#article_container' %></a></li>
         <li><a href="/news">News</a></li>
-        <li><%= link_to 'Profile', user_path(current_user.id), remote: true %></li>
-        <li><%= Time.now %></li >
-      </ul>
-      <%= link_to "logout", destroy_user_session_path, class: "dropdown-item", method: :delete %>
-    </nav>
 
+
+      </ul>
+    </nav>
   </section>
-  <div class="col-10  flex-nowrap">
+
+
+  <div class="col-9  flex-nowrap p-0">
     <%= render "opinions/navbar" %>
     <div class="row  ml-0">
-      <div class="col-8">
+      <div class="col-7 m-0">
         <div>
           <%= render "opinions/tab_nav" %>
         </div>
 
       </div>
-      <div class="col-4 ">
+      <div class="col-5 ">
 
 
 

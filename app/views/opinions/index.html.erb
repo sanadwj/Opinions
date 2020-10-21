@@ -1,6 +1,6 @@
 <div class="row">
-  <% if user_signed_in? %>
-  <section class="content col-3 ">
+
+  <section class="content col-2 p-0">
     <nav class="side_nav">
       <div id="cart" class="carts">
         <%= render "users/profile" %>
@@ -8,7 +8,7 @@
       </div>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/questions"><%= link_to 'Profile', user_path(current_user.id), remote:true, :ajaxtarget => '#article_container' %></a></li>
+        <li><a href="/questions"><%= link_to 'Profile', user_path(current_user.id), remote:true %></a></li>
         <li><a href="/news">News</a></li>
 
 
@@ -17,7 +17,7 @@
   </section>
 
 
-  <div class="col-9  flex-nowrap p-0">
+  <div class="col-10 flex-nowrap p-0">
     <%= render "opinions/navbar" %>
     <div class="row  ml-0">
       <div class="col-7 m-0">
@@ -39,7 +39,7 @@
       </div>
     </div>
   </div>
-  <% end %>
+
 </div>
 
 

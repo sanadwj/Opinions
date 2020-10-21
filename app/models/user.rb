@@ -7,8 +7,10 @@ class User < ApplicationRecord
   has_many :followers
   has_many :inverse_followers, class_name: 'Follower', foreign_key: 'follower_id'
   has_one_attached :avatar
+  has_one_attached :cover_image
   has_many :confirmed_followers, -> { where confirmed: true }, class_name: 'Follower'
   has_many :friends, through: :confirmed_followers
+  has_rich_text :body
 
 
 

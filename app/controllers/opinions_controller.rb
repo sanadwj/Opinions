@@ -29,11 +29,11 @@ class OpinionsController < ApplicationController
   # POST /opinions
   # POST /opinions.json
   def create
-    @opinion = current_user.opinions.build(opinion_params)
+    @opinion = @user.opinions.build(opinion_params)
 
     respond_to do |format|
       if @opinion.save
-        format.html { redirect_to @opinion, notice: 'Post was successfully created.' }
+        format.html { redirect_to opinions_url, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @opinion }
       else
         format.html { render :new }

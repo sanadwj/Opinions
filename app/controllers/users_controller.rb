@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   include TheUser
+  include ActionText::Attachable
   before_action :set_user
   before_action :authenticate_user!
   before_action :user_signed_in?

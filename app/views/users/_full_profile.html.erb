@@ -5,12 +5,17 @@
       <%=  add_friend(@user) %>
     </div>
     <div class="col-4 p-1">
-      <%= image_tag @user.avatar.variant(resize: "90x90!") if @user.avatar.attached?%>
+      <% if @user.avatar.attached? %>
+        <%= image_tag @user.avatar.variant(resize: "90x90!") %>
+      <% else %>
+        <%= image_tag("/images/profile.png") %>
+      <% end %>
     </div>
     <div class="col-4 " style="font-size: 24px; text-align: center">
       <%= link_to '',  user_path(@user), class: 'fa fa-list ' %>
     </div>
   </div>
+
 
   <div class="col-12 ">
     <div class=" justify-content-center " style=" text-align: center">

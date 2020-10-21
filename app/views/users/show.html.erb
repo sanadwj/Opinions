@@ -1,1 +1,37 @@
-<%= render 'users/user_tab_nav' %>
+<div class="container row col-12 p-0 m-0">
+
+  <div class="col-3 p-0 m-0">
+    <section class="content ">
+      <nav class="side_nav" style="width: 100%">
+
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/questions"><%= link_to 'Profile', user_path(current_user.id), remote:true %></a></li>
+          <li><a href="/news">News</a></li>
+
+
+        </ul>
+      </nav>
+    </section>
+  </div>
+
+  <div class="col-9 p-0">
+    <%= render 'opinions/navbar' %>
+    <div class="col-12 row m-0 p-0">
+      <div class="col-8 p-0">
+        <% if current_user.cover_image.attached? %>
+          <%= image_tag current_user.cover_image.variant(resize: "90x90!") %>
+        <% else %>
+          <%= image_tag(("cover.jpg"), class: "col-12 p-0", style:'height: 15em')%>
+        <% end %>
+        <%= render 'users/user_tab_nav' %>
+      </div>
+
+      <div class="col-4">
+        <%= render 'users/full_profile' %>
+      </div>
+    </div>
+
+
+  </div>
+</div>

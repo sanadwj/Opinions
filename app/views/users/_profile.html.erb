@@ -1,34 +1,32 @@
-<div class="container row d-flex flex-nowrap">
-<div class="media col-12">
+<div class="container p-0">
+  <div class="col-12 row align-items-baseline justify-content-around pt-3">
 
 
-  <%= image_tag current_user.avatar.variant(resize: "100x100!") if current_user.avatar.attached?%>
+    <div class="col-4 p-1">
+      <% if current_user.avatar.attached? %>
+        <%= image_tag current_user.avatar.variant(resize: "90x90!") %>
+      <% else %>
+        <%= image_url("/images/profile.png") %>
+      <% end %>
+    </div>
+    <div class=" justify-content-center col-8 " style=" text-align: center">
+      <h5 class="card-title text-white"><%= current_user.name %></h5>
+      <p class="card-text text-white"><small class="text-muted"><%= current_user.username %></small></p>
+    </div>
 
-  <div class="media-body">
-    <h5 class="mt-0 text-white"><%= current_user.name %></h5>
-    <p class="mt-0 text-white"><%= current_user.username %></p>
-    <p class="mt-0 text-white"><%= current_user.opinions.count %></p>
+  </div>
+
+
+
+  <div class="col-12 text-white row">
+    <div class="col-6 ">
+      <p>Following</p>
+      <%= current_user.friends.count %>
+    </div>
+    <div class="col-6">
+      <p>Followers</p>
+      <%= current_user.inverse_followers.count %>
+    </div>
 
   </div>
 </div>
-
-  <div class="media col-6 d-flex flex-wrap">
-    <img src="#" class="mr-3" alt="<%=  %>">
-    <div class="media-body">
-      <h5 class="mt-0">following</h5>
-
-
-    </div>
-  </div>
-  <div class="media col-6 d-flex flex-wrap">
-    <img src="#" class="mr-3" alt="<%= current_user.photo %>">
-    <div class="media-body">
-      <h5 class="mt-0">follower</h5>
-<h1>profile</h1>
-      sdijfhoihnfcd
-      jhdoifhsd
-
-    </div>
-  </div>
-</div>
-

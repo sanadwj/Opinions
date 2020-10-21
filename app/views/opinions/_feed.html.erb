@@ -2,11 +2,9 @@
 <div class="container">
 
   <% @opinions.each do | opinion | %>
-    <% if current_user %>
-      <%= link_to  opinion.user.name, user_path(opinion.id), remote: true%>
-      <% else %>
+
     <%= link_to  opinion.user.name, user_path(opinion.user.id), remote: true%>
-    <% end %>
+
     <%= opinion.body %>
     <%= opinion.created_at.strftime('%A, %B %e,%Y') %>
     <tr>

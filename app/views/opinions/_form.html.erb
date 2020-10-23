@@ -4,6 +4,7 @@
       <%= form.rich_text_area :body, label: "What's Your Opinion", input_html: {class: "textarea"}, wrapper: false, label_html: {class: "label"}, placeholders: "Your opinion...", autofocus: true %>
     </div>
   </div>
+  <%= hidden_field_tag(:redirect_url, opinions_path) %>
   <%= form.button :submit, class: "button is-info" %>
 
 <% end %>

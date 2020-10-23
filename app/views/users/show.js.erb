@@ -1,3 +1,11 @@
-user = document.getElementById("user")
-user.innerHTML = "<%= j render(@user) %>"
+$('#user').prepend("<%= j render @user %>").html_safe
+
+$(document).ready(function(){
+
+    $(window).click(function(){$('#user').fadeOut();});
+    $('#user').reset("<%= j render @user %>").html_safe
+});
+
+
+
 

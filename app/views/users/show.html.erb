@@ -19,11 +19,12 @@
     <%= render 'opinions/navbar' %>
     <div class="col-12 row m-0 p-0">
       <div class="col-8 p-0">
-        <% if current_user.cover_image.attached? %>
-          <%= image_tag current_user.cover_image.variant(resize: "90x90!") %>
+        <% if @user.cover_image.attached? %>
+          <%= image_tag @user.cover_image, class: 'col-12 p-0', style:"height: 15em" %>
         <% else %>
           <%= image_tag(("cover.jpg"), class: "col-12 p-0", style:'height: 15em')%>
         <% end %>
+
         <%= render 'users/user_tab_nav' %>
       </div>
 

@@ -7,14 +7,10 @@ Rails.application.routes.draw do
 
   end
 
-
-
-  resources :users, only: [:index, :show] do
-    resources :opinions
+  resources :users, only: [:index, :show, :create]do
     resources :followers, only: [:create, :destroy]
   end
-
+  resources :opinions
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
 
 end

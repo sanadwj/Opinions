@@ -16,6 +16,13 @@
             <% image_tag("/profile.png", class: 'rounded-circle', height: 250, width: 250) %>
           <% end %>
         </div>
+        <div class="col-sm-4">
+          <% if resource.cover_image.attached? %>
+            <%= image_tag resource.cover_image.variant(resize: "250x250!"), class: 'rounded-circle' %>
+          <% else %>
+            <% image_tag("/profile.png", class: 'rounded-circle', height: 250, width: 250) %>
+          <% end %>
+        </div>
         <div class="col-sm-8">
           <%= f.input :avatar %>
           <%= f.input :cover_image %>

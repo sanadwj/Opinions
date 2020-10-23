@@ -3,7 +3,7 @@
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
-      <% @user.opinions.each do | opinion | %>
+      <% @user.opinions.order("created_at DESC").each do | opinion | %>
         <%= link_to  opinion.user.name, user_path(opinion.user.id) %>
         <%= opinion.body %>
         <%= opinion.created_at.strftime('%A, %B %e,%Y') %>

@@ -1,34 +1,32 @@
 class UsersController < ApplicationController
   include TheUser
-  include ActionText::Attachable
   before_action :set_user
   before_action :authenticate_user!
   before_action :user_signed_in?
-
-
 
   def index
     @users = User.all
     @mutual_friends = User.where(id: show_two_friends)
 
+
   end
 
   def show
     @user = User.find(params[:id])
-    @opinion = @user.opinions
+    @new_opinion = Opinion.new
 
     respond_to do |format|
       if @user
         format.html
-        format.js { @current_user = @user }
+        format.js
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
-
 
   private
 

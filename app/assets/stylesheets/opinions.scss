@@ -66,16 +66,22 @@
 
 
 #user {
-  article {
-    h2 {
-      margin-top: 0;
-    }
-    background: white;
-    border-radius: 0.5em;
-    margin: 1em;
-    padding: 1.414em;
-    @media (min-width: 30em) {
-      margin: 0; // desktop doesn't need this margin
-    }
-  }
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background-color: #f5f6f8;
+  border-left: 2px ;
+  box-shadow:  0 0 10px 0   rgba(57, 68, 84, 0.2);
+
+
+
+
+}
+
+
+
+.nav-styles {
+  background-color: #4f7195!important;
 }

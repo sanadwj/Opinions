@@ -8,22 +8,6 @@ class OpinionsController < ApplicationController
   def index
     @opinions = Opinion.all.order("created_at DESC")
     @opinion = Opinion.new
-
-  end
-
-  # GET /opinions/1
-  # GET /opinions/1.json
-  def show
-
-  end
-
-  # GET /opinions/new
-  def new
-    @opinion = current_user.opinions.build
-  end
-
-  # GET /opinions/1/edit
-  def edit
   end
 
   # POST /opinions
@@ -33,13 +17,14 @@ class OpinionsController < ApplicationController
 
     respond_to do |format|
       if @opinion.save
-        format.html { redirect_to opinions_url, notice: 'Post was successfully created.' }
+        format.html { redirect_to(params[:redirect_url]) }
         format.json { render :show, status: :created, location: @opinion }
       else
         format.html { render :new }
         format.json { render json: @opinion.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /opinions/1

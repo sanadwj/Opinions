@@ -75,11 +75,18 @@
   border-left: 2px ;
   box-shadow:  0 0 10px 0   rgba(57, 68, 84, 0.2);
 
-
-
-
 }
 
+#feed
+{
+  height:440px;
+  width:100%;
+  /* background-color:#CCC; */
+  overflow-y:auto;
+  float:left;
+  position:relative;
+  margin-left:-5px;
+}
 
 
 .nav-styles {

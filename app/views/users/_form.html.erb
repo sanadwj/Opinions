@@ -1,4 +1,4 @@
-<%= form_with(model: @new_opinion, local: false) do |form| %>
+<%= form_with(model: @new_opinion, local: true) do |form| %>
   <div class="field rich p-3">
     <div class="control">
       <%= form.rich_text_area :body, label: "What's Your Opinion", input_html: {class: "textarea"}, wrapper: false, label_html: {class: "label"}, placeholders: "Your opinion...", autofocus: true %>

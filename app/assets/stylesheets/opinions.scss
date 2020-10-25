@@ -43,6 +43,7 @@
   }
 
 }
+
 .who-to-follow {
   border-left: solid 2px #dbdbdb;
   height: 100vh;
@@ -51,7 +52,6 @@
 .avatar {
   box-shadow:  0 0 10px 0   rgba(57, 68, 84, 0.2);
 }
-
 
 #user {
   z-index: 100;
@@ -74,9 +74,4 @@
   float:left;
   position:relative;
 
-}
-
-
-.nav-styles {
-  background-color: #bfb;
 }

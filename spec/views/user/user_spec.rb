@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Users' do
   before :each do
-    @user1 = User.create(name: 'adam', email: 'test1@test.com', password: '123456',id: 1)
-    @user2 = User.create(name: 'john', email: 'test2@test.com', password: '123456', id:2)
+    @user1 = User.create(name: 'adam', email: 'test1@test.com', password: '123456', id: 1)
+    @user2 = User.create(name: 'john', email: 'test2@test.com', password: '123456', id: 2)
     @user3 = User.create(name: 'mike', email: 'test3@test.com', password: '123456', id: 3)
     @user1.followers.create(confirmed: true, user_id: 1, follower_id: 2)
     @user3.followers.create(confirmed: true, user_id: 3, follower_id: 2)
@@ -28,7 +30,5 @@ RSpec.describe 'Users' do
       visit '/users/2'
       expect(page).to have_content('adam')
     end
-
-
   end
 end

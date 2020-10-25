@@ -25,28 +25,28 @@ Follower.create(confirmed: true, user_id: 3, follower_id: 1)
 Follower.create(confirmed: true, user_id: 4, follower_id: 1)
 Follower.create(confirmed: true, user_id: 5, follower_id: 1)
 
-2.times do |i|
+2.times do |_i|
   opinion = Opinion.new
   opinion.body = Faker::Lorem.paragraph_by_chars(number: 200)
   opinion.user = User.first
   opinion.save
 end
 
-2.times do |i|
+2.times do |_i|
   opinion = Opinion.new
   opinion.body = Faker::Lorem.paragraph_by_chars(number: 200)
   opinion.user = User.second
   opinion.save
 end
 
-2.times do |i|
+2.times do |_i|
   opinion = Opinion.new
   opinion.body = Faker::Lorem.paragraph_by_chars(number: 200)
   opinion.user = User.third
   opinion.save
 end
 
-2.times do |i|
+2.times do |_i|
   opinion = Opinion.new
   opinion.body = Faker::Lorem.paragraph_by_chars(number: 200)
   opinion.user = User.fourth

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class FollowersController < ApplicationController
-  before_action :set_follower, only: [:show, :edit, :update, :destroy]
+  before_action :set_follower, only: %i[show edit update destroy]
 
   # GET /followers
   # GET /followers.json
@@ -24,15 +26,13 @@ class FollowersController < ApplicationController
   # POST /followers
   # POST /followers.json
   def create
-    @follower = current_user.followers.build(follower_id: params[:user_id], confirmed: true )
-
+    @follower = current_user.followers.build(follower_id: params[:user_id], confirmed: true)
 
     if @follower.save
       redirect_to user_path(id: @follower.follower_id), notice: 'Following successful.'
     else
       redirect_to opinions_path, alert: @follower.errors.full_messages.join('. ').to_s
     end
-
   end
 
   # PATCH/PUT /followers/1
@@ -52,22 +52,23 @@ class FollowersController < ApplicationController
   # DELETE /followers/1
   # DELETE /followers/1.json
   def reject
-
-      @follower = Follower.find_by(follower_id: params[:follower_id], user_id: params[:user_id])
-      @follower = Follower.find_by(follower_id: params[:user_id], user_id: params[:follower_id]) if @follower.nil?
-      @follower.destroy
-      redirect_to opinions_path, notice: 'Unfollowed'
-
+    @follower = Follower.find_by(follower_id: params[:follower_id], user_id: params[:user_id])
+    if @follower.nil?
+      @follower = Follower.find_by(follower_id: params[:user_id], user_id: params[:follower_id])
+    end
+    @follower.destroy
+    redirect_to opinions_path, notice: 'Unfollowed'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_follower
-      @follower = Follower.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def follower_params
-      params.require(:follower).permit(:user_id, :follower_id, :confirmed)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_follower
+    @follower = Follower.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def follower_params
+    params.require(:follower).permit(:user_id, :follower_id, :confirmed)
+  end
 end

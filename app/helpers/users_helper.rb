@@ -17,17 +17,17 @@ module UsersHelper
 
   def user_cover
     if @user.cover_image.attached?
-      image_tag @user.cover_image, class: 'col-12 p-0', style:"height: 15em"
+      image_tag @user.cover_image, class: 'col-12 p-0', style: 'height: 15em'
     else
-      image_tag(("cover.jpg"), class: "col-12 p-0", style:'height: 15em')
+      image_tag('cover.jpg', class: 'col-12 p-0', style: 'height: 15em')
     end
   end
-  
+
   def current_avatar
     if current_user.avatar.attached?
-      image_tag current_user.avatar.variant(resize: "90x90!"), class: 'rounded-circle'
+      image_tag current_user.avatar.variant(resize: '90x90!'), class: 'rounded-circle'
     else
-      image_tag("profile.png", class: 'rounded-circle', height: 90, width: 90)
+      image_tag('profile.png', class: 'rounded-circle', height: 90, width: 90)
     end
   end
 
@@ -43,10 +43,9 @@ module UsersHelper
     if resource.cover_image.attached?
       image_tag resource.cover_image.variant(resize: '90x90!'), class: 'rounded-circle'
     else
-      image_tag('profile.png',  height: 90, width: 90)
+      image_tag('profile.png', height: 90, width: 90)
     end
   end
-
 
   def same_follower
     if !current_user.friend?(@user)
@@ -55,5 +54,4 @@ module UsersHelper
       link_to 'Unfollow', reject_path(user_id: @user.id, follower_id: current_user.id), method: :delete
     end
   end
-
 end

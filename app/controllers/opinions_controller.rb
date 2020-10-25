@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 class OpinionsController < ApplicationController
   include TheUser
   before_action :set_user
-  before_action :set_opinion, only: [:show, :edit, :update, :destroy]
+  before_action :set_opinion, only: %i[show edit update destroy]
 
   # GET /opinions
   # GET /opinions.json
   def index
-    @opinions = Opinion.all.order("created_at DESC")
+    @opinions = Opinion.all.order('created_at DESC')
     @opinion = Opinion.new
   end
 
@@ -24,7 +26,6 @@ class OpinionsController < ApplicationController
         format.json { render json: @opinion.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   # PATCH/PUT /opinions/1
@@ -35,7 +36,7 @@ class OpinionsController < ApplicationController
         format.html { redirect_to @opinion, notice: 'Opinion was successfully updated.' }
         format.json { render :show, status: :ok, location: @opinion }
 
-        @opinions = Opinion.all.order("created_at DESC")
+        @opinions = Opinion.all.order('created_at DESC')
         ActionCable.server.broadcast 'opinions',
                                      html: render_to_string('opinions/index', layout: false)
       else
@@ -56,13 +57,14 @@ class OpinionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_opinion
-      @opinion = Opinion.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def opinion_params
-      params.require(:opinion).permit(:user, :body, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_opinion
+    @opinion = Opinion.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def opinion_params
+    params.require(:opinion).permit(:user, :body, :user_id)
+  end
 end

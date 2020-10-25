@@ -12,9 +12,6 @@ class User < ApplicationRecord
   has_many :friends, through: :confirmed_followers
   has_rich_text :body
 
-
-
-
   def friends
     follower_array = followers.map(&:follower)
     follower_array.concat(inverse_followers.map(&:user))
@@ -30,5 +27,4 @@ class User < ApplicationRecord
   def friend?(user)
     friends.include?(user)
   end
-
 end

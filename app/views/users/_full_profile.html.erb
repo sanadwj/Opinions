@@ -12,10 +12,10 @@
       <h5 class="card-title"><%= @user.name %></h5>
       <p class="card-text"><small class="text-muted"><%= "@#{@user.username}" %></small></p>
     </div>
-    <div class="dropdown col-12 " style="text-align: center">
-      <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <ul class="dropdown col-12 " style="text-align: center">
+      <li class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         More
-      </button>
+      </li>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="#">
           <div class="col-4 " >
@@ -32,7 +32,7 @@
           </div>
         </a>
       </div>
-    </div>
+    </ul>
   </div>
   <hr>
   <div class="col-12 row mt-5" style="text-align: center">
@@ -59,10 +59,11 @@
     </div>
     <div>
       <% @user.inverse_followers.each do |person| %>
-        <%= link_to person.user.name, user_path(person.user.id)  %>
-        <% if !current_user.id  %>
-          <%= link_to 'Unfollow', reject_path(user_id: person.id, friend_id: current_user.id), class: 'btn btn-danger', method: :delete %>
-        <% end %>
+
+        <div class="col-12">
+          <%= link_to person.user.name, user_path(person.user.id)  %>
+        </div>
+          <hr>
       <% end %>
     </div>
 

@@ -10,4 +10,18 @@ RSpec.describe User, type: :model do
     it { should have_many(:followers) }
     it { should have_many(:inverse_followers).class_name('Follower') }
   end
+
+  describe 'methods' do
+    context 'friends' do
+      it 'should return an array' do
+        expect(user.friends).to be_an(Array)
+      end
+    end
+
+    context 'friend?' do
+      it 'should return a boolean' do
+        expect(user.friend?(user)).to be_kind_of(FalseClass || TrueClass)
+      end
+    end
+  end
 end

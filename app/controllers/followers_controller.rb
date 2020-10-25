@@ -28,7 +28,7 @@ class FollowersController < ApplicationController
 
 
     if @follower.save
-      redirect_to opinions_path, notice: 'Friendship request was sent successfully.'
+      redirect_to user_path(id: @follower.follower_id), notice: 'Following successful.'
     else
       redirect_to opinions_path, alert: @follower.errors.full_messages.join('. ').to_s
     end

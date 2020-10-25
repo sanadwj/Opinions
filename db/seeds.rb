@@ -19,7 +19,11 @@ User.create!(name: 'Sanad',
                password: 'password',
                password_confirmation: 'password')
 end
-
+Follower.create(confirmed: true, user_id: 1, follower_id: 2)
+Follower.create(confirmed: true, user_id: 2, follower_id: 1)
+Follower.create(confirmed: true, user_id: 3, follower_id: 1)
+Follower.create(confirmed: true, user_id: 4, follower_id: 1)
+Follower.create(confirmed: true, user_id: 5, follower_id: 1)
 
 2.times do |i|
   opinion = Opinion.new

@@ -19,7 +19,7 @@
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="#">
           <div class="col-4 " >
-            <%=  add_friend(@user) %>
+            <%=  follow(@user) %>
           </div></a>
         <a class="dropdown-item" href="#">
           <div class="col-4 " >
@@ -28,7 +28,7 @@
         </a>
         <a class="dropdown-item" href="#">
           <div class="col-4">
-            <%= link_to 'Unfollow', reject_path(user_id: @user.id, follower_id: current_user.id), method: :delete %>
+            <%= same_follower %>
           </div>
         </a>
       </div>
@@ -38,7 +38,7 @@
   <div class="col-12 row mt-5" style="text-align: center">
     <div class="col-4">
       <p>Following</p>
-      <%= @user.friends.count %>
+      <%= @user.followers.count %>
     </div>
     <div class="col-4">
       <p>Followers</p>
@@ -58,9 +58,9 @@
       <hr/>
     </div>
     <div>
-      <% current_user.friends.each do |person| %>
-        <%= link_to person.name, user_path(person.id)  %>
-        <% if !current_user.id == @user.id %>
+      <% @user.inverse_followers.each do |person| %>
+        <%= link_to person.user.name, user_path(person.user.id)  %>
+        <% if !current_user.id  %>
           <%= link_to 'Unfollow', reject_path(user_id: person.id, friend_id: current_user.id), class: 'btn btn-danger', method: :delete %>
         <% end %>
       <% end %>

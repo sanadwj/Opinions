@@ -1,7 +1,8 @@
 module UsersHelper
-  def add_friend(user)
-    if current_user.id == user.id || current_user.friends
-
+  def follow(user)
+    if current_user.id == user.id || current_user.friend?(user)
+      nil
+    else
       link_to 'Follow', user_followers_path(@user), method: :post, value: '1'
     end
   end
@@ -43,6 +44,15 @@ module UsersHelper
       image_tag resource.cover_image.variant(resize: '90x90!'), class: 'rounded-circle'
     else
       image_tag('profile.png',  height: 90, width: 90)
+    end
+  end
+
+
+  def same_follower
+    if !current_user.friend?(@user)
+      nil
+    else
+      link_to 'Unfollow', reject_path(user_id: @user.id, follower_id: current_user.id), method: :delete
     end
   end
 

@@ -21,14 +21,14 @@ class User < ApplicationRecord
     follower_array.compact
   end
 
-  def friend_requests
-    inverse_followers.map { |follower| follower.user.confirmed }.compact
-  end
-
-  def confirmed_friend(user)
+  def confirmed_followers(user)
     follower = inverse_followerss.find { |inv_follower| inv_follower.user == user }
     follower.confirmed = true
     follower.save
+  end
+
+  def friend?(user)
+    friends.include?(user)
   end
 
 end

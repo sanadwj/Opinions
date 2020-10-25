@@ -23,3 +23,10 @@ global.$ = jQuery
 
 require("trix")
 require("@rails/actiontext")
+
+
+$(document).on('turbolinks:load', function(){
+    $("#flash").delay(3000).slideUp(500, function(){
+        $("#flash").alert('close');
+    });
+});

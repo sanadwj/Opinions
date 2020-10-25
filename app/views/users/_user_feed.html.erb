@@ -1,4 +1,3 @@
-
 <div id="feed" class="list-group ml-3 pr-5" >
   <% @user.opinions.order("created_at DESC").each do | opinion | %>
     <div  class="list-group-item list-group-item-action my-1 rounded ">
@@ -8,8 +7,8 @@
         <small><%= opinion.created_at.strftime('%c') %></small>
       </div>
       <p class="mb-1"><%= opinion.body %></p>
-      <small > <button type="button" class="btn btn-secondary btn-sm" ><%= link_to 'Edit', edit_opinion_path(opinion), class: 'text-white' %></button></small>
-      <small> <button type="button" class="btn btn-outline-danger btn-sm"><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-dark' %></button></small>
+      <small ><%= opinion_user_edit(opinion) %></small>
+      <small> <%= opinion_user_delete(opinion) %></small>
     </div>
   <% end %>
 </div>

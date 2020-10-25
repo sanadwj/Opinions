@@ -20,9 +20,7 @@
 [Project live website](https://arcane-beyond-26196.herokuapp.com/users/sign_in)
 
 
-### The idea start by this ERD
 
-![](app/assets/images/ERD.png)
    
   
 ## 🛠 Getting Started
@@ -57,10 +55,18 @@
 
 ### 📝 What you will find:
    1. The user logs in to the app, Use: `sanad@example.com` as email, and `password` as password :)
+   
+   <br>
+   
+   ![](app/assets/images/login.png)
    2. The user is presented with the homepage that includes:
        1. Left-side menu (includes only links to pages that are implemented).
        2. *Opinions* tab in the centre .
        3. Right-side section with *Who to follow.
+       
+       <br>
+       
+       ![](app/assets/images/opinions.png)
    3. The *Opinions* section includes:
        1. Simple form for creating a opinion.
        2. List of all opinions (sorted by most recent) that display opinion text and author details.
@@ -75,6 +81,10 @@
        2. Button to follow a user.
        3. Stats: total number of opinions, number of followers and number of following users.
        4. List of people who follow this user.
+       
+       <br>
+       
+       ![](app/assets/images/profiles.png)
    
 ### Automated Tests
 

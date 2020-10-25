@@ -1,7 +1,8 @@
 $('#user').fadeIn();
+
 $('#user').append("<%= j render  @user %>").html_safe
 
 $(document).ready(function(){
-    setTimeout(function(){$('#user').fadeOut();}, 10000);
     $(window).click(function(){$('#user').fadeOut();});
 });
+

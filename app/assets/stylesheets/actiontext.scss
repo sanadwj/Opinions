@@ -41,6 +41,12 @@
   .trix-button-row {
     .trix-button-group:nth-child(2){
       display: none;
+      background-color: white;
     }
   }
+}
+
+.trix {
+  background-color: white;
+  border-radius: 1%;
 }

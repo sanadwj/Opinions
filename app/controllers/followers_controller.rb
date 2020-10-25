@@ -51,12 +51,13 @@ class FollowersController < ApplicationController
 
   # DELETE /followers/1
   # DELETE /followers/1.json
-  def destroy
-    @follower.destroy
-    respond_to do |format|
-      format.html { redirect_to followers_url, notice: 'Follower was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+  def reject
+
+      @follower = Follower.find_by(follower_id: params[:follower_id], user_id: params[:user_id])
+      @follower = Follower.find_by(follower_id: params[:user_id], user_id: params[:follower_id]) if @follower.nil?
+      @follower.destroy
+      redirect_to opinions_path, notice: 'Unfollowed'
+
   end
 
   private

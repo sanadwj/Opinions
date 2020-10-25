@@ -1,24 +1,15 @@
-<div class="container p-0 d-block">
-  <div class="col-12 row align-items-baseline justify-content-around pt-3">
-
-
-    <div class="col-4 p-1">
-      <% if current_user.avatar.attached? %>
-        <%= image_tag current_user.avatar.variant(resize: "90x90!") %>
-      <% else %>
-        <%= image_url("/images/profile.png") %>
-      <% end %>
+<div class="container pt-3 pr-0">
+  <div class="col-12 row align-items-baseline justify-content-center ">
+    <div class="col-4  avatar">
+      <%= current_avatar %>
     </div>
     <div class=" justify-content-center col-8 " style=" text-align: center">
       <h5 class="card-title text-white"><%= current_user.name %></h5>
-      <p class="card-text text-white"><small class="text-muted"><%= current_user.username %></small></p>
+      <p class="card-text text-white"><small class="text-muted"><%= "@#{current_user.username}" %></small></p>
     </div>
-
   </div>
-
-
-
-  <div class="col-12 text-white row">
+  <hr>
+  <div class="col-12 text-white row mt-5">
     <div class="col-6 ">
       <p>Following</p>
       <%= current_user.friends.count %>
@@ -30,3 +21,4 @@
 
   </div>
 </div>
+<hr>

@@ -34,6 +34,10 @@ class OpinionsController < ApplicationController
       if @opinion.update(opinion_params)
         format.html { redirect_to @opinion, notice: 'Opinion was successfully updated.' }
         format.json { render :show, status: :ok, location: @opinion }
+
+        @opinions = Opinion.all.order("created_at DESC")
+        ActionCable.server.broadcast 'opinions',
+                                     html: render_to_string('opinions/index', layout: false)
       else
         format.html { render :edit }
         format.json { render json: @opinion.errors, status: :unprocessable_entity }

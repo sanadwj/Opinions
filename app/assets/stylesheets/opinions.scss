@@ -13,35 +13,17 @@
   flex-direction: column;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  overflow-x: hidden;
-  @media (min-width: 30em) {
-    flex-direction: row; // desktop is vertically laid out
-    -webkit-box-orient: horizontal;
+  background: #233145;
 
-  }
-  .follow_nav {
-    height: 100%;
-    width: 100%;
-    overflow-x: hidden;
-  }
+
   nav {
-    padding-bottom: 1em;
-    background: #233145;
-    text-align: center; // mobile has centered nav
-    @media (min-width: 30em) {
-      text-align: center; // desktop nav is left-aligned
-      padding: 1em;
-      height: 100vh;
-      width: 100%;
-      // and needs more padding
-    }
+    text-align: center;
+    height: 100vh;
+    width: 100%;
     ul {
       list-style: none;
       margin: 0;
       padding: 1em;
-      @media (min-width: 30em) {
-        padding-right: 1em; // give desktop some extra space
-      }
       li {
         margin: 0;
         padding: 0.5em;
@@ -59,9 +41,15 @@
       }
     }
   }
-  main {
-    padding: 0.5em;
-  }
+
+}
+.who-to-follow {
+  border-left: solid 2px #dbdbdb;
+  height: 100vh;
+}
+
+.avatar {
+  box-shadow:  0 0 10px 0   rgba(57, 68, 84, 0.2);
 }
 
 
@@ -80,15 +68,15 @@
 #feed
 {
   height:440px;
-  width:100%;
+  width:95%;
   /* background-color:#CCC; */
   overflow-y:auto;
   float:left;
   position:relative;
-  margin-left:-5px;
+
 }
 
 
 .nav-styles {
-  background-color: #4f7195!important;
+  background-color: #bfb;
 }

@@ -1,12 +1,12 @@
 <%= form_with(model: @new_opinion, local: true) do |form| %>
-  <div class="field rich p-3">
-    <div class="control">
+  <div class="p-3 m-3 trix">
+    <div>
       <%= form.rich_text_area :body, label: "What's Your Opinion", input_html: {class: "textarea"}, wrapper: false, label_html: {class: "label"}, placeholders: "Your opinion...", autofocus: true %>
     </div>
-  </div>
-  <%= hidden_field_tag(:redirect_url, user_path(@user.id)) %>
-  <%= form.button :submit   %>
 
+  <%= hidden_field_tag(:redirect_url, user_path(@user.id)) %>
+  <%= form.button :submit, class: "btn btn-secondary mt-2"   %>
+  </div>
 <% end %>
 
 

@@ -1,56 +1,64 @@
-<div class="row">
-
-  <section class="content col-3 p-0">
-    <nav class="side_nav">
+<div class="row ">
+  <div class="content col-3 p-0">
+    <nav class="p-0">
       <div id="cart" class="carts">
         <%= render "users/profile" %>
-
       </div>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/questions"><%= link_to 'Profile', user_path(current_user.id), remote:true %></a></li>
-        <li><a href="/news">News</a></li>
-
-
+      <ul class="text-muted">
+        <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+        <hr>
+        <li><a href="/"><i class="fa fa-connectdevelop" aria-hidden="true"></i>Connect</a></li>
+        <hr>
+        <li><a href="/"><i class="fa fa-podcast" aria-hidden="true"></i>Discover</a></li>
+        <hr>
+        <li><i class="fa fa-user" aria-hidden="true"></i><%= link_to 'Profile', user_path(current_user.id), remote:true %></li>
+        <hr>
+        <li><a href="/"><i class="fa fa-stumbleupon" aria-hidden="true"></i>Statistics</a></li>
       </ul>
     </nav>
-  </section>
-
-
+  </div>
   <div class="col-9 flex-nowrap p-0">
     <%= render "opinions/navbar" %>
     <div class="row  ml-0">
-      <div class="col-8 m-0">
+      <div class="col-8 m-0 pr-0">
         <div>
           <%= render "opinions/tab_nav" %>
         </div>
-
       </div>
-      <div class="col-4 ">
-
-          <h1>hell</h1>
-          <h1>hell</h1>
-          <h1>hell</h1>
-          <h1>hell</h1>
-          <h1>hell</h1>
-
-
+      <div class="col-4 pl-0 who-to-follow ">
+        <div class="text-muted pt-2 ">
+          <h6 class="text-center">Who To Follow</h6>
+          <hr>
+          <div >
+            <% User.order("created_at DESC").first(3).each do |p| %>
+              <div class="col-12 ">
+                <%= image_tag("profile.png", class: 'rounded-circle', height: 70, width: 70) %>
+                <%=link_to p.name, user_path(id: p.id) %>
+                <hr>
+              </div>
+            <% end %>
+          </div>
+          <div class="text-muted pt-2 ">
+            <h6 class="text-center">Trending</h6>
+            <hr>
+            <div class="container">
+              <h6>#nikita</h6>
+              <hr>
+              <h6>#TheOne</h6>
+              <hr>
+              <h6>#fry</h6>
+              <hr>
+              <h6>#laila</h6>
+              <hr>
+              <h6>#funz</h6>
+            </div>
+          </div>
+        </div>
         <div id="user" class="users">
           <%  @user %>
         </div>
-
-
       </div>
     </div>
   </div>
-
 </div>
-
-
-
-
-
-
-
-
 

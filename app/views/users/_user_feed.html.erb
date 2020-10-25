@@ -1,28 +1,15 @@
-<section class="user-section">
-  <h2><%= "Name: #{@user.name}" %></h2>
-  <article class="timeline">
-    <h3>Recent posts:</h3>
-    <ul class="posts">
-      <% @user.opinions.order("created_at DESC").each do | opinion | %>
-        <%= link_to  opinion.user.name, user_path(opinion.user.id) %>
-        <%= opinion.body %>
-        <%= opinion.created_at.strftime('%A, %B %e,%Y') %>
-        <tr>
-      <% end %>
-    </ul>
 
-
-    <ul class="posts">
-      <h3>Friends</h3>
-      <% current_user.friends.each do |person| %>
-        <%= link_to person.name, user_path(@user.id)  %>
-        <% if !current_user.id == @user.id %>
-          <%= link_to 'Unfriend', reject_path(user_id: person.id, friend_id: current_user.id), class: 'btn btn-danger', method: :delete %>
-        <% end %>
-      <% end %>
-    </ul>
-
-
-
-  </article>
-</section>
+<div id="feed" class="list-group ml-3 pr-5" >
+  <% @user.opinions.order("created_at DESC").each do | opinion | %>
+    <div  class="list-group-item list-group-item-action my-1 rounded ">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><%= link_to  opinion.user.name, user_path(opinion.user.id), remote: true%></h5>
+        <hr>
+        <small><%= opinion.created_at.strftime('%c') %></small>
+      </div>
+      <p class="mb-1"><%= opinion.body %></p>
+      <small > <button type="button" class="btn btn-secondary btn-sm" ><%= link_to 'Edit', edit_opinion_path(opinion), class: 'text-white' %></button></small>
+      <small> <button type="button" class="btn btn-outline-danger btn-sm"><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-dark' %></button></small>
+    </div>
+  <% end %>
+</div>

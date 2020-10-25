@@ -27,6 +27,7 @@ gem 'image_processing', '~> 1.2'
 gem 'better_errors', '~> 2.8', '>= 2.8.3'
 gem 'devise'
 gem 'simple_form'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 
 # Reduces boot times through caching; required in config/boot.rb

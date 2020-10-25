@@ -5,3 +5,46 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.create!(name: 'Sanad',
+             username: 'Sandoog',
+             email: 'sanad@example.com',
+             password: 'password',
+             password_confirmation: 'password')
+
+10.times do |_i|
+  User.create!(name: Faker::Name.name,
+               username: Faker::Name.unique.first_name,
+               email: Faker::Internet.unique.email,
+               password: 'password',
+               password_confirmation: 'password')
+end
+
+
+2.times do |i|
+  opinion = Opinion.new
+  opinion.body = Faker::Lorem.paragraph_by_chars(number: 200)
+  opinion.user = User.first
+  opinion.save
+end
+
+2.times do |i|
+  opinion = Opinion.new
+  opinion.body = Faker::Lorem.paragraph_by_chars(number: 200)
+  opinion.user = User.second
+  opinion.save
+end
+
+2.times do |i|
+  opinion = Opinion.new
+  opinion.body = Faker::Lorem.paragraph_by_chars(number: 200)
+  opinion.user = User.third
+  opinion.save
+end
+
+2.times do |i|
+  opinion = Opinion.new
+  opinion.body = Faker::Lorem.paragraph_by_chars(number: 200)
+  opinion.user = User.fourth
+  opinion.save
+end

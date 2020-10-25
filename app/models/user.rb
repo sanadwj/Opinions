@@ -14,6 +14,7 @@ class User < ApplicationRecord
 
 
 
+
   def friends
     follower_array = followers.map(&:follower)
     follower_array.concat(inverse_followers.map(&:user))

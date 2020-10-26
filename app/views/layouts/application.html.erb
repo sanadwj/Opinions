@@ -10,8 +10,9 @@
   </head>
 
   <body>
-  <div id="flash"><%= flash_message%></div>
+
   <main class='<%= controller.controller_name %>'>
+    <div id="flash"><%= flash_message%></div>
     <%= yield %>
   </main>
   </body>

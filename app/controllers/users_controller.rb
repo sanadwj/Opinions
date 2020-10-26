@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @who = User.where(id: show_last)
   end
 
   def show

@@ -6,7 +6,7 @@ class OpinionsController < ApplicationController
   # GET /opinions
   # GET /opinions.json
   def index
-    @opinions = Opinion.all.order('created_at DESC')
+    @opinions = Opinion.all.with_rich_text_body.order('created_at DESC').includes(:user)
     @opinion = Opinion.new
   end
 

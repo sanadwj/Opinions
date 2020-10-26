@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class OpinionsController < ApplicationController
   include TheUser
   before_action :set_user

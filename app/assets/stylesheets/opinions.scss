@@ -2,9 +2,6 @@
 // They will automatically be included in applications.scss.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
-
-
 .content {
   margin: 0;
   padding: 0;
@@ -15,25 +12,28 @@
   -webkit-box-direction: normal;
   background: #233145;
 
-
   nav {
     text-align: center;
     height: 100vh;
     width: 100%;
+
     ul {
       list-style: none;
       margin: 0;
       padding: 1em;
+
       li {
         margin: 0;
         padding: 0.5em;
         text-transform: uppercase;
         letter-spacing: 0.354em;
-        color: #730E15;
+        color: #730e15;
+
         a {
           color: #bfb;
           text-decoration: none;
         }
+
         a:hover {
           background: none;
           color: white;
@@ -41,7 +41,6 @@
       }
     }
   }
-
 }
 
 .who-to-follow {
@@ -50,7 +49,7 @@
 }
 
 .avatar {
-  box-shadow:  0 0 10px 0   rgba(57, 68, 84, 0.2);
+  box-shadow: 0 0 10px 0 rgba(57, 68, 84, 0.2);
 }
 
 #user {
@@ -60,18 +59,14 @@
   right: 0;
   width: 100%;
   background-color: #f5f6f8;
-  border-left: 2px ;
-  box-shadow:  0 0 10px 0   rgba(57, 68, 84, 0.2);
-
+  border-left: 2px;
+  box-shadow: 0 0 10px 0 rgba(57, 68, 84, 0.2);
 }
 
-#feed
-{
-  height:440px;
-  width:95%;
-  /* background-color:#CCC; */
-  overflow-y:auto;
-  float:left;
-  position:relative;
-
+#feed {
+  height: 440px;
+  width: 95%;
+  overflow-y: auto;
+  float: left;
+  position: relative;
 }

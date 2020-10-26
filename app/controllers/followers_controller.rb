@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# rubocop: disable Style/IfUnlessModifier
 
 class FollowersController < ApplicationController
   before_action :set_follower, only: %i[show edit update destroy]
@@ -72,3 +72,5 @@ class FollowersController < ApplicationController
     params.require(:follower).permit(:user_id, :follower_id, :confirmed)
   end
 end
+
+# rubocop: enable Style/IfUnlessModifier

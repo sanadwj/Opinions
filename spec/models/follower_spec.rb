@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper.rb'
 
 RSpec.describe Follower, type: :model do

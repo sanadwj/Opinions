@@ -7,8 +7,6 @@
         <small><%= opinion.created_at.strftime('%c') %></small>
       </div>
       <p class="mb-1"><%= opinion.body %></p>
-      <small ><%= opinion_user_edit(opinion) %></small>
-      <small> <%= opinion_user_delete(opinion) %></small>
     </div>
   <% end %>
 </div>

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# rubocop: disable Style/IfUnlessModifier
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
@@ -9,6 +9,7 @@ require File.expand_path('../config/environment', __dir__)
 if Rails.env.production?
   abort('The Rails environment is running in production mode!')
 end
+
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -107,3 +108,5 @@ RSpec.configure do |config|
   #   DatabaseCleaner.clean
   # end
 end
+
+# rubocop: enable Style/IfUnlessModifier

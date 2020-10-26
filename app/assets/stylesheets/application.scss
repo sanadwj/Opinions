@@ -15,20 +15,20 @@
  */
 
 @font-face {
-  font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif ;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif, serif ;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, serif;
   overflow-x: hidden;
   background-color: #e7e9ec !important;
 
   a {
-    color: #999999;
+    color: #999;
     text-decoration: none;
     font-weight: bold;
   }
 }
-

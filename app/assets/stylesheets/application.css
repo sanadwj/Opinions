@@ -9,7 +9,26 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
+ *= require bootstrap
  *= require_tree .
  *= require_self
  */
+@font-face {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, serif;
+  overflow-x: hidden;
+  background-color: #e7e9ec !important;
+}
+
+body a,
+html a {
+  color: #999;
+  text-decoration: none;
+  font-weight: bold;
+}

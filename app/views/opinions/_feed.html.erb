@@ -1,0 +1,15 @@
+
+<div id="feed" class="list-group ml-3 pr-5">
+  <% @opinions.each do | opinion | %>
+  <div  class="list-group-item list-group-item-action my-1 rounded ">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1"><%= link_to  opinion.user.name, user_path(opinion.user.id), remote: true%></h5>
+      <hr>
+      <small><%= opinion.created_at.strftime('%c') %></small>
+    </div>
+    <p class="mb-1"><%= opinion.body %></p>
+    <small ><%= opinion_user_edit(opinion) %></small>
+    <small> <%= opinion_user_delete(opinion) %></small>
+  </div>
+ <% end %>
+</div>

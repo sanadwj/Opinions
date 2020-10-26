@@ -15,3 +15,18 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import "bootstrap"
+import "./src/applications.scss"
+global.$ = jQuery
+
+
+require("trix")
+require("@rails/actiontext")
+
+
+$(document).on('turbolinks:load', function(){
+    $("#flash").delay(3000).slideUp(500, function(){
+        $("#flash").alert('close');
+    });
+});

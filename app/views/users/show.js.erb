@@ -1,0 +1,8 @@
+$('#user').fadeIn();
+
+$('#user').append("<%= j render  @user %>").html_safe
+
+$(document).ready(function(){
+    $(window).click(function(){$('#user').fadeOut();});
+});
+

@@ -1,0 +1,39 @@
+
+
+  <div class="container-fluid d-flex p-0 align-items-center ">
+    <%= image_tag "signin.jpg", class: "col-6 p-0 min-vh-100" %>
+    <div class="form ">
+
+      <div class="col-4 m-auto">
+        <h2 class="text-center">Log in</h2>
+
+
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+
+            <div class="form-group">
+              <%= f.input :email, required: false, input_html: { class: "form-control"}, wrapper: false, label_html: { class: "label" } %>
+            </div>
+
+
+
+            <div class="form-group">
+              <%= f.input :password, required: false, input_html: { class: "form-control "}, wrapper: false, label_html: { class: "label" } %>
+            </div>
+
+
+
+            <div class="control m-1">
+              <%= f.input :remember_me, wrapper: false, as: :boolean if devise_mapping.rememberable?%>
+            </div>
+
+
+          <%= f.button :submit, "Log in", class:"button is-info is-medium" %>
+        <% end %>
+        <br/>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+
+

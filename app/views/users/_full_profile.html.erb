@@ -1,0 +1,74 @@
+<div class="container pt-5  who-to-follow">
+  <div class="col-12 align-content-center pt-4">
+
+    <div style="text-align: center" >
+      <div class="p-1 ">
+        <%= avatar %>
+      </div>
+    </div>
+
+
+    <div class=" justify-content-center " style=" text-align: center">
+      <h5 class="card-title"><%= @user.name %></h5>
+      <p class="card-text"><small class="text-muted"><%= "@#{@user.username}" %></small></p>
+    </div>
+    <ul class="dropdown col-12 " style="text-align: center">
+      <li class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        More
+      </li>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">
+          <div class="col-4 " >
+            <%=  follow(@user) %>
+          </div></a>
+        <a class="dropdown-item" href="#">
+          <div class="col-4 " >
+            <%= link_to 'Profile',  user_path(@user) %>
+          </div>
+        </a>
+        <a class="dropdown-item" href="#">
+          <div class="col-4">
+            <%= same_follower %>
+          </div>
+        </a>
+      </div>
+    </ul>
+  </div>
+  <hr>
+  <div class="col-12 row mt-5" style="text-align: center">
+    <div class="col-4">
+      <p>Following</p>
+      <%= @user.followers.count %>
+    </div>
+    <div class="col-4">
+      <p>Followers</p>
+      <%= @user.inverse_followers.count %>
+    </div>
+    <div class="col-4">
+      <p>Opinions</p>
+      <%= current_user.opinions.count %>
+    </div>
+  </div>
+  <hr>
+  <div class="col-12 mt-5">
+    <div class="media-body">
+      <div class="row justify-content-center ">
+        <h6>Followed By</h6>
+      </div>
+      <hr/>
+    </div>
+    <div>
+      <% @user.inverse_followers.each do |person| %>
+
+        <div class="col-12">
+          <%= link_to person.user.name, user_path(person.user.id)  %>
+        </div>
+          <hr>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+
+

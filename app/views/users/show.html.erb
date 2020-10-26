@@ -1,0 +1,29 @@
+<div class="container row col-12 p-0 m-0">
+  <div class="content col-3 p-0 m-0">
+    <nav class="side_nav" style="width: 100%">
+      <ul>
+        <ul class="text-muted">
+          <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i><%= link_to 'Home', opinions_path %></a></li>
+          <hr>
+          <li><a href="/"><i class="fa fa-connectdevelop" aria-hidden="true"></i>Connect</a></li>
+          <hr>
+          <li><a href="/"><i class="fa fa-podcast" aria-hidden="true"></i>Discover</a></li>
+          <hr>
+          <li><a href="/"><i class="fa fa-stumbleupon" aria-hidden="true"></i>Statistics</a></li>
+        </ul>
+      </ul>
+    </nav>
+  </div>
+  <div class="col-9 p-0">
+    <%= render 'opinions/navbar' %>
+    <div class="col-12 row m-0 p-0">
+      <div class="col-8 p-0">
+        <%= user_cover %>
+        <%= render 'users/user_tab_nav' %>
+      </div>
+      <div class="col-4 pl-0">
+        <%= render 'users/full_profile' %>
+      </div>
+    </div>
+  </div>
+</div>
